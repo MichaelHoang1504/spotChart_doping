@@ -89,7 +89,7 @@ fetch( 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mast
               timeFormat(d['Seconds']*1000) +
               (d['Doping'] ? '<br/><br/>' + d['Doping'] : '')
           )
-          .style('left', event.pageX - 150 + 'px')
+          .style('left', event.pageX - 200 + 'px')
           .style('top', event.pageY - 28 + 'px');
       })
       .on('mouseout', function () {
