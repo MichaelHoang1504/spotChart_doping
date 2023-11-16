@@ -74,7 +74,7 @@ fetch( 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mast
     ;
   })
               .attr('fill', d=> d['Doping'] != ''?'#2596be' : '#Be6a25')
-    .on('mouseover', (d)=> {
+    .on('mouseover', (event,d)=> {
         tooltip.style('opacity', 0.9);
         tooltip.attr('data-year', d['Year']);
         tooltip
@@ -89,8 +89,8 @@ fetch( 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/mast
               timeFormat(d['Seconds']*1000) +
               (d['Doping'] ? '<br/><br/>' + d['Doping'] : '')
           )
-          .style('left', xScale(d['Year']) + 'px')
-          .style('top', yScale(new Date(d['Seconds'] *1000)) + 160 + 'px');
+          .style('left', event.pageX + 'px')
+          .style('top', event.pageY - 28 + 'px');
       })
       .on('mouseout', function () {
         tooltip.style('opacity', 0);
